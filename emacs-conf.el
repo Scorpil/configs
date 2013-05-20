@@ -1,3 +1,5 @@
+;; Emacs version: emacs 24
+
 ;; == Hotkeys enchantments ==
 (global-set-key "\C-cg" 'goto-line)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -10,13 +12,12 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/linum-off-0.1")
 (require 'linum-off)
 
-;;; == Backup management ==
+;; == Backup management ==
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying-when-linked t)
 
-; == Add package repositories ==
+;; == Add package repositories ==
 (package-initialize)
-;; Add the original Emacs Lisp Package Archive
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
@@ -29,7 +30,7 @@
 (require 'ido)
 (ido-mode t)
 
-;; == el-get
+;; == el-get ==
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -40,14 +41,14 @@
       (eval-print-last-sexp))))
 (el-get 'sync)
 
-;; == jedi.el: Python auto-completion package for Emacs
+;; == jedi.el: Python auto-completion package for Emacs ==
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 
-;; == flycheck
+;; == flycheck ==
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; == Nav
+;; == nav ==
 (add-to-list 'load-path "/directory/containing/nav/")
 (require 'nav)
 (nav-disable-overeager-window-splitting)
