@@ -36,7 +36,7 @@
 ;; == Add package repositories ==
 (package-initialize)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("mar\malade" . "http://marmalade-repo.org/packages/")
+			 ("marmlade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;; == Theming ==

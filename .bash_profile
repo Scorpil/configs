@@ -14,9 +14,9 @@ gpip(){
 source /usr/local/bin/virtualenvwrapper.sh
 
 # === Emacs ===
-alias emacs="emacs-24.4 -nw"
+alias emacs="`brew --prefix`/bin/emacs -nw"
 alias e=emacs
-export EDITOR="emacs-24.4 -nw"
+export EDITOR="`brew --prefix`/bin/emacs -nw"
 
 # === Docker ===
 alias dcu="docker-compose up"
