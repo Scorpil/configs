@@ -6,3 +6,5 @@
 [user]
 	name = Andrew Scorpil
 	email = scorpilmail@gmail.com
+[push]
+	default = simple

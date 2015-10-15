@@ -1,6 +1,6 @@
-export PATH=/usr/local/bin:$PATH
+export PATH="/Users/scorpil/bin:/Users/scorpil/anacoonda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 
-# ===== Python =====
+# === Python ===
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
@@ -11,17 +11,20 @@ gpip(){
 }
 
 # load virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+# === Tmux ===
+source /Users/scorpil/.tmuxinator.zsh
 
 # === Emacs ===
-alias emacs="`brew --prefix`/bin/emacs -nw"
-alias e=emacs
+alias e="TERM=xterm-256color `brew --prefix`/bin/emacs -nw"
 export EDITOR="`brew --prefix`/bin/emacs -nw"
 
 # === Docker ===
 alias dcu="docker-compose up"
 alias dcb="docker-compose build"
 alias dcd="dcb && dcu"
+alias doc="docker-compose"
 
 # === Vagrant ===
 alias vgu="vagrant up"
@@ -41,8 +44,5 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
-
-alias tmux="TERM=screen-256color-bce tmux"
-alias b2d='eval "$(boot2docker shellinit)"'
 
 export GOPATH="$HOME/.go"
