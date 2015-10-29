@@ -108,10 +108,12 @@ alias e="TERM=xterm-256color `brew --prefix`/bin/emacs -nw"
 export EDITOR="`brew --prefix`/bin/emacs -nw"
 
 # === Docker ===
-alias dcu="docker-compose up"
-alias dcb="docker-compose build"
-alias dcd="dcb && dcu"
-alias doc="docker-compose"
+alias do="docker"
+alias dm="docker-machine"
+alias dc="docker-compose"
+
+alias dminit="eval $(dm env dev)"
+alias dcd="dc build && dc up"
 
 # === Vagrant ===
 alias vgu="vagrant up"
