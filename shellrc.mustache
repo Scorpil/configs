@@ -1,0 +1,47 @@
+{{#zsh}}
+# === ZSH ===
+export ZSH=/Users/scorpil/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+{{/zsh}}
+
+# === Environment vars ===
+export LANG=en_US.UTF-8
+export PATH="/Users/$USER/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
+
+# === Python ===
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# == Golang ==
+export GOPATH="$HOME/.go"
+export GO15VENDOREXPERIMENT=1
+export PATH="$PATH:$GOPATH/bin"
+
+# === Tmux ===
+source /Users/scorpil/.tmuxinator.zsh
+
+# === Emacs ===
+alias e="TERM=xterm-256color `brew --prefix`/bin/emacs -nw"
+export EDITOR="`brew --prefix`/bin/emacs -nw"
+
+# === Docker ===
+alias dk="docker"
+alias dm="docker-machine"
+alias dz="docker-compose"
+
+# === Vagrant ===
+alias vgu="vagrant up"
+alias vgp="vagrant provision && vagrant ssh"
+alias vgs="vagrant up && vagrant ssh"
+# there is an issue somewhere between vagrant, chef and virtualbox that makes
+# provision fail sometimes. This quick hack fixes it.
+alias vgrp="rm .vagrant/machines/default/virtualbox/synced_folders; vagrant reload --provision && vagrant ssh"
+
+# ===== Other =====
+alias ctags="`brew --prefix`/bin/ctags"
+
+export CLICOLOR=1
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
